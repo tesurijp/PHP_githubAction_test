@@ -3,7 +3,6 @@ on: workflow_dispatch
 jobs:
   php-static-check:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - name: checkout code
         uses: actions/checkout@v2
@@ -17,10 +16,17 @@ jobs:
         run: ls -lR
       - name: exec phpcs
         continue-on-error: true
-        run: php phpcs.phar --standard=PSR1 .
+        run: php phpcs.phar --standard=PSR1 . > phpcs.log
       - name: exec phpmd
         continue-on-error: true
-        run: php phpmd.phar .  ansi cleancode,codesize,controversial,design,naming,unusedcode
+        run: php phpmd.phar .  ansi cleancode,codesize,controversial,design,naming,unusedcode > phpmd.log
       - name: exec phpstan
         continue-on-error: true
-        run: php phpstan.phar analyse --level=9 .
+        run: php phpstan.phar analyse --level=9 . > phpstan.log
+      - name: archive result
+        run: zip check_result phpcs.log phpmd.log phpstan.log
+      - name: set artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: check result
+          path: check_result.zip
