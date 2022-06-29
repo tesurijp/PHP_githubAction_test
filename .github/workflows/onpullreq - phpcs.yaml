@@ -17,4 +17,4 @@ jobs:
         run: curl -OL https://raw.githubusercontent.com/staabm/annotate-pull-request-from-checkstyle/master/cs2pr
       - name: exec phpcs
         continue-on-error: true
-        run: php phpcs.phar --standard=PSR1 . | php cs2pr
+        run: php phpcs.phar --standard=PSR12 --report=checkstyle -q . | php cs2pr
