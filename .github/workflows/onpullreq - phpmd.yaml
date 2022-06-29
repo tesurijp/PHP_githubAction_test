@@ -1,0 +1,19 @@
+name: php-static-cheker
+on: 
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+jobs:
+  php-static-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: download phpmd  
+        run: curl -OL https://phpmd.org/static/latest/phpmd.phar
+      - name: exec phpmd
+        continue-on-error: true
+        run: php phpmd.phar .  ansi cleancode,codesize,controversial,design,naming,unusedcode
+

@@ -1,0 +1,18 @@
+name: php-static-cheker
+on: 
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+jobs:
+  php-static-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: download phpcs
+        run: curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+      - name: exec phpcs
+        continue-on-error: true
+        run: php phpcs.phar --standard=PSR1 . 
