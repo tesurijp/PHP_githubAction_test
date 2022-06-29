@@ -20,7 +20,7 @@ jobs:
         run: php phpcs.phar --standard=PSR1 .
       - name: exec phpmd
         continue-on-error: true
-        run: php phpmd.phar .  text cleancode,codesize,controversial,design,naming,unusedcode
+        run: php phpmd.phar .  ansi cleancode,codesize,controversial,design,naming,unusedcode
       - name: exec phpstan
         continue-on-error: true
         run: php phpstan.phar analyse --level=9 .
