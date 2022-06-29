@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: download phpcs
-        run: curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+        run: curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar --output phpcs.phar
       - name: checkout code
         uses: actions/checkout@v2
       - name: exec ls
