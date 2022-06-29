@@ -1,7 +1,9 @@
-name: learn-github-actions
+name: php-static-cheker
 on: workflow_dispatch
 jobs:
-  check-bats-version:
+  php-static-check:
     runs-on: ubuntu-latest
+    container:
+        image : composer
     steps:
-      - run: echo "this is pen"
+      - run: composer
