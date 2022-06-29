@@ -6,4 +6,9 @@ jobs:
     container:
         image : composer
     steps:
-      - run: composer
+      - name: install phpcs
+        run: composer global require "squizlabs/php_codesniffer=*"
+      - name: install phpmd
+        run: composer global require "phpmd/phpmd=@stable"
+      - name: install phpstan
+        run: composer global require phpstan/phpstan
