@@ -11,4 +11,4 @@ jobs:
       - name: exec ls
         run: ls -lR
       - name: exec phpcs
-        run: php phpcs.phar --standard=PRS1 .
+        run: php phpcs.phar --standard=PSR1 .
