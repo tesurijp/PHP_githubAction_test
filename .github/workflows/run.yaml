@@ -24,9 +24,10 @@ jobs:
         continue-on-error: true
         run: php phpstan.phar analyse --level=9 . > phpstan.log
       - name: archive result
-        run: zip check_result phpcs.log phpmd.log phpstan.log
-      - name: set artifact
         uses: actions/upload-artifact@v2
         with:
           name: check result
-          path: check_result.zip
+          path: phpcs.log
+          path: phpmd.log
+          path: phpstan.log
+
