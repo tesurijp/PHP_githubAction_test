@@ -16,8 +16,11 @@ jobs:
       - name: exec ls
         run: ls -lR
       - name: exec phpcs
+        continue-on-error: true
         run: php phpcs.phar --standard=PSR1 .
       - name: exec phpmd
+        continue-on-error: true
         run: php phpmd.phar .  text cleancode,codesize,controversial,design,naming,unusedcode
       - name: exec phpstan
+        continue-on-error: true
         run: php phpstan.phar analyse --level=9 .
