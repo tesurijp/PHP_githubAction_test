@@ -4,15 +4,9 @@ jobs:
   php-static-check:
     runs-on: ubuntu-latest
     container:
-        image : composer
+        image : php
     steps:
-      - name: install phpcs
-        run: composer global require "squizlabs/php_codesniffer=*"
-      - name: install phpmd
-        run: composer global require "phpmd/phpmd=@stable"
-      - name: install phpstan
-        run: composer global require phpstan/phpstan
       - name: checkout code
         uses: actions/checkout@v2
-      - name: exec phpcs
-        run: phpcs --standard=PSR1 .
+      - name exec ls
+        run: ls -lR
