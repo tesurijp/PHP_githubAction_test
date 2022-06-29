@@ -3,6 +3,7 @@ on: workflow_dispatch
 jobs:
   php-static-check:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: checkout code
         uses: actions/checkout@v2
