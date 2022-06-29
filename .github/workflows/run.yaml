@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v2
-      - name exec ls
+      - name: exec ls
         run: ls -lR
