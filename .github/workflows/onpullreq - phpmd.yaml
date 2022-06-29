@@ -1,4 +1,4 @@
-name: php-statc-check-on-pullrequest-phpmd
+name: on-pullrequest-phpmd
 on: 
   pull_request:
     types:

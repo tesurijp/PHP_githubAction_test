@@ -1,4 +1,4 @@
-name: php-static-cheker
+name: on_manual-check_all
 on: workflow_dispatch
 jobs:
   php-static-check:
@@ -16,7 +16,7 @@ jobs:
         run: ls -lR
       - name: exec phpcs
         continue-on-error: true
-        run: php phpcs.phar --standard=PSR1 . > phpcs.log
+        run: php phpcs.phar --standard=PSR12 . > phpcs.log
       - name: exec phpmd
         continue-on-error: true
         run: php phpmd.phar .  ansi cleancode,codesize,controversial,design,naming,unusedcode > phpmd.log

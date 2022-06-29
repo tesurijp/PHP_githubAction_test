@@ -1,4 +1,4 @@
-name: php-statc-check-on-pullrequest-phpstan
+name: on-pullrequest-phpstan
 on: 
   pull_request:
     types:
