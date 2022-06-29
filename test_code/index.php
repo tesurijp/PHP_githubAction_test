@@ -8,7 +8,7 @@ class testClass{
         return $x-$y;
     }
     public function add2($x,$y) {
-        return $x+$y*3;
+        return $x+$y*4;
     }
 }
 ?>
