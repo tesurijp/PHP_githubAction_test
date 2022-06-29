@@ -21,7 +21,9 @@ jobs:
         run: ls -lR
       - name: exec phpcs
         continue-on-error: true
-        run: php phpcs.phar --report=json --standard=PSR1 .
+        uses: chekalsky/phpcs-action@v1
+          with:
+            phpcs_bin_path: 'php phpcs.phar'
       - name: exec phpmd
         continue-on-error: true
         run: php phpmd.phar .  github cleancode,codesize,controversial,design,naming,unusedcode
